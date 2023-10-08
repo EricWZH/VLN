@@ -1,0 +1,26 @@
+BASE_TASK_CONFIG_PATH: habitat_extensions/config/vlnce_task.yaml
+EVAL_CKPT_PATH_DIR: data/checkpoints/nonlearning/
+EVAL:
+    SPLIT: val_unseen
+    # any num greater than the actual episode count evals every episode
+    EPISODE_COUNT: 500
+    EVAL_NONLEARNING: True
+    NONLEARNING:
+        # RandomAgent or HandcraftedAgent
+        AGENT: RandomAgent
+    
+
+INFERENCE:
+    SPLIT: val_unseen
+    CKPT_PATH: "data/checkpoints/nonlearning/ckpt.0.pth"
+    PREDICTIONS_FILE: predictions.json
+    INFERENCE_NONLEARNING: True
+    NONLEARNING:
+        # RandomAgent or HandcraftedAgent
+        AGENT: "RandomAgent"
+
+DAGGER:
+    ITERATIONS: 1
+    EPOCHS: 15
+    UPDATE_SIZE: 1000
+    BATCH_SIZE: 5
